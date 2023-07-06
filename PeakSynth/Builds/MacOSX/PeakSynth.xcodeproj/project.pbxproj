@@ -26,10 +26,13 @@
 /* Begin PBXBuildFile section */
 		01AA15F10257BB3A0E7D24DB /* include_juce_core.mm */ = {isa = PBXBuildFile; fileRef = C4579BAC8C00A9E2EB38FA99; };
 		0218DE301D401B49804AF4DF /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXBuildFile; fileRef = 00BD06A7C6CA39D7F7B069A0; };
+		051B5723D333B566DF8A47CD /* ParamControlComponent.cpp */ = {isa = PBXBuildFile; fileRef = 7C4FCF4A01692DEF684F0B94; };
 		0814BCC4F267051815A6AF05 /* include_juce_dsp.mm */ = {isa = PBXBuildFile; fileRef = F8191F98F5E67EF2F70B5079; };
+		13D3533CCEA6C2004D18CF91 /* AudioPlayerData.cpp */ = {isa = PBXBuildFile; fileRef = 7EA542AEDE767C7B4B3BBA27; };
 		1A4DF7946E76A8D7DB59EEC2 /* QuartzCore.framework */ = {isa = PBXBuildFile; fileRef = FC2B19B45442067915382F23; };
 		1E5FD2BA8F89378DFDDDDD71 /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = 14EE08F6FE4BB27E885048BE; };
 		204BFD3AB5E47763BEDEB604 /* include_juce_data_structures.mm */ = {isa = PBXBuildFile; fileRef = 28E91FE81F76FE8191F51089; };
+		2F7B24B5E864A2E3A50E99C2 /* AudioPlayerComponent.cpp */ = {isa = PBXBuildFile; fileRef = 3284335504AB31238503DEA3; };
 		333259EE6F2C8EED3761EAD3 /* Accelerate.framework */ = {isa = PBXBuildFile; fileRef = 0D92455C62957BC319D05B67; };
 		374E5B497E2CA02F384DA8A6 /* include_juce_audio_processors.mm */ = {isa = PBXBuildFile; fileRef = 0F316F5775F50ACA7C1B0F04; };
 		3972329170885B8610DB3924 /* include_juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = 6EAE174FC8278FB520DD036D; };
@@ -41,9 +44,11 @@
 		7D10E5A719E1F0D315A5B777 /* include_juce_audio_plugin_client_ARA.cpp */ = {isa = PBXBuildFile; fileRef = EF5D7259E504E33845B34A52; };
 		84A61A47D2A61AC475DC9D3B /* CoreMIDI.framework */ = {isa = PBXBuildFile; fileRef = D9CB8D558BB21ECF77C5D9BD; };
 		88B0C27CD2D88063A86410CF /* PluginProcessor.cpp */ = {isa = PBXBuildFile; fileRef = 92B7AA47AC51F9F03741E54B; };
+		8DF3DAED2D0ED49D01862AFB /* FilterADSR.cpp */ = {isa = PBXBuildFile; fileRef = EA6C34694BE045345FF2B049; };
 		8E13DEF79BF36976A260F9E4 /* Foundation.framework */ = {isa = PBXBuildFile; fileRef = 2BD8E7D93663170B5C64F130; };
 		8F72A9D979210DF9BBB5F03F /* include_juce_audio_processors_ara.cpp */ = {isa = PBXBuildFile; fileRef = 8477FB256D8D472A4D42A1F0; };
 		998F222007BA17F731751E10 /* AudioUnit.framework */ = {isa = PBXBuildFile; fileRef = 26E7605B53B06E4E47CA96A3; };
+		A134390E16C1E203A0761C9E /* SynthFilterVoice.cpp */ = {isa = PBXBuildFile; fileRef = 4A37DF1791BFE847565EB8C2; };
 		A1F25B433FC652D8C550A493 /* CoreAudio.framework */ = {isa = PBXBuildFile; fileRef = 06B6A8AEB304E0F82848B87A; };
 		A58D7ADA47E1BE6678B639FB /* include_juce_audio_devices.mm */ = {isa = PBXBuildFile; fileRef = 0DF8F078F5C0D61F97BD86B5; };
 		A8F032AD2CB0726D9A012798 /* include_juce_audio_plugin_client_utils.cpp */ = {isa = PBXBuildFile; fileRef = 5E88681BA29F640C72D445F7; };
@@ -70,6 +75,7 @@
 		00BD06A7C6CA39D7F7B069A0 /* include_juce_audio_plugin_client_VST3.cpp */ /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_VST3.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp; sourceTree = SOURCE_ROOT; };
 		0484844111C681432B3A2BD7 /* Shared Code */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPeakSynth.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B6A8AEB304E0F82848B87A /* CoreAudio.framework */ /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		08A8948DA0017A57B05B8C2A /* SynthSound.h */ /* SynthSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SynthSound.h; path = ../../Source/Data/SynthSound.h; sourceTree = SOURCE_ROOT; };
 		0D92455C62957BC319D05B67 /* Accelerate.framework */ /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0DF8F078F5C0D61F97BD86B5 /* include_juce_audio_devices.mm */ /* include_juce_audio_devices.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_devices.mm; path = ../../JuceLibraryCode/include_juce_audio_devices.mm; sourceTree = SOURCE_ROOT; };
 		0E02BE5D48302FAAA03D38D3 /* PluginProcessor.h */ /* PluginProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginProcessor.h; path = ../../Source/PluginProcessor.h; sourceTree = SOURCE_ROOT; };
@@ -87,15 +93,20 @@
 		2BD8E7D93663170B5C64F130 /* Foundation.framework */ /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2EA8D07386628843F96B7849 /* include_juce_audio_utils.mm */ /* include_juce_audio_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_utils.mm; sourceTree = SOURCE_ROOT; };
 		2FD1B3D98497C50BE65E148F /* PluginEditor.cpp */ /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
+		3284335504AB31238503DEA3 /* AudioPlayerComponent.cpp */ /* AudioPlayerComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AudioPlayerComponent.cpp; path = ../../Source/UI/AudioPlayerComponent.cpp; sourceTree = SOURCE_ROOT; };
 		48BF4A18280D1F68CDCD613C /* PluginEditor.h */ /* PluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginEditor.h; path = ../../Source/PluginEditor.h; sourceTree = SOURCE_ROOT; };
+		4A37DF1791BFE847565EB8C2 /* SynthFilterVoice.cpp */ /* SynthFilterVoice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SynthFilterVoice.cpp; path = ../../Source/Data/SynthFilterVoice.cpp; sourceTree = SOURCE_ROOT; };
 		4DE13BA8D8F6FDBC14324397 /* IOKit.framework */ /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		57ECADF1C6B5F24C1653E663 /* juce_audio_basics */ /* juce_audio_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_basics; path = /Users/owenprendergast/Documents/JUCE/modules/juce_audio_basics; sourceTree = "<absolute>"; };
 		5E88681BA29F640C72D445F7 /* include_juce_audio_plugin_client_utils.cpp */ /* include_juce_audio_plugin_client_utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_utils.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp; sourceTree = SOURCE_ROOT; };
 		60558E9365030E4B3C2F7BE9 /* juce_audio_plugin_client */ /* juce_audio_plugin_client */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_plugin_client; path = /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client; sourceTree = "<absolute>"; };
 		61C4A021A21FA5BFF0C6067C /* include_juce_audio_processors_lv2_libs.cpp */ /* include_juce_audio_processors_lv2_libs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_processors_lv2_libs.cpp; path = ../../JuceLibraryCode/include_juce_audio_processors_lv2_libs.cpp; sourceTree = SOURCE_ROOT; };
+		626E032CF0E517D90E05D2A1 /* FilterADSR.h */ /* FilterADSR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FilterADSR.h; path = ../../Source/Data/FilterADSR.h; sourceTree = SOURCE_ROOT; };
 		6EAE174FC8278FB520DD036D /* include_juce_gui_basics.mm */ /* include_juce_gui_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_gui_basics.mm; path = ../../JuceLibraryCode/include_juce_gui_basics.mm; sourceTree = SOURCE_ROOT; };
 		6F60D6E02F8C57D4F87504D9 /* include_juce_audio_formats.mm */ /* include_juce_audio_formats.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_formats.mm; path = ../../JuceLibraryCode/include_juce_audio_formats.mm; sourceTree = SOURCE_ROOT; };
 		7A3784744E013C0226B4DC44 /* include_juce_events.mm */ /* include_juce_events.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_events.mm; path = ../../JuceLibraryCode/include_juce_events.mm; sourceTree = SOURCE_ROOT; };
+		7C4FCF4A01692DEF684F0B94 /* ParamControlComponent.cpp */ /* ParamControlComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ParamControlComponent.cpp; path = ../../Source/UI/ParamControlComponent.cpp; sourceTree = SOURCE_ROOT; };
+		7EA542AEDE767C7B4B3BBA27 /* AudioPlayerData.cpp */ /* AudioPlayerData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AudioPlayerData.cpp; path = ../../Source/Data/AudioPlayerData.cpp; sourceTree = SOURCE_ROOT; };
 		8477FB256D8D472A4D42A1F0 /* include_juce_audio_processors_ara.cpp */ /* include_juce_audio_processors_ara.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_processors_ara.cpp; path = ../../JuceLibraryCode/include_juce_audio_processors_ara.cpp; sourceTree = SOURCE_ROOT; };
 		876C8203229693AFE90DF61A /* Info-AU.plist */ /* Info-AU.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-AU.plist"; path = "Info-AU.plist"; sourceTree = SOURCE_ROOT; };
 		89E1C445BBDDCE41A77FE203 /* Info-VST3.plist */ /* Info-VST3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-VST3.plist"; path = "Info-VST3.plist"; sourceTree = SOURCE_ROOT; };
@@ -110,8 +121,10 @@
 		C06D8F08EF18760EB221485D /* JuceHeader.h */ /* JuceHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JuceHeader.h; path = ../../JuceLibraryCode/JuceHeader.h; sourceTree = SOURCE_ROOT; };
 		C32CC8BC03DB0899683FDDC3 /* juce_data_structures */ /* juce_data_structures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_data_structures; path = /Users/owenprendergast/Documents/JUCE/modules/juce_data_structures; sourceTree = "<absolute>"; };
 		C4579BAC8C00A9E2EB38FA99 /* include_juce_core.mm */ /* include_juce_core.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_core.mm; path = ../../JuceLibraryCode/include_juce_core.mm; sourceTree = SOURCE_ROOT; };
+		C49604E1B645D5A7ADC31417 /* AudioPlayerComponent.h */ /* AudioPlayerComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioPlayerComponent.h; path = ../../Source/UI/AudioPlayerComponent.h; sourceTree = SOURCE_ROOT; };
 		C69CCB22239232CB5BA1FE4B /* include_juce_audio_plugin_client_AU_2.mm */ /* include_juce_audio_plugin_client_AU_2.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_AU_2.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm; sourceTree = SOURCE_ROOT; };
 		C9B64B4E832D2E5051D0F883 /* juce_audio_utils */ /* juce_audio_utils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_utils; path = /Users/owenprendergast/Documents/JUCE/modules/juce_audio_utils; sourceTree = "<absolute>"; };
+		D0873C8F903E0F7ED4518148 /* AudioPlayerData.h */ /* AudioPlayerData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioPlayerData.h; path = ../../Source/Data/AudioPlayerData.h; sourceTree = SOURCE_ROOT; };
 		D249A71D64751656A7F8D68A /* juce_audio_processors */ /* juce_audio_processors */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_processors; path = /Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors; sourceTree = "<absolute>"; };
 		D48E17AB65C9CDBF4EB4B88F /* juce_graphics */ /* juce_graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_graphics; path = /Users/owenprendergast/Documents/JUCE/modules/juce_graphics; sourceTree = "<absolute>"; };
 		D551C4266FFEE5AAC04BEF08 /* DiscRecording.framework */ /* DiscRecording.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscRecording.framework; path = System/Library/Frameworks/DiscRecording.framework; sourceTree = SDKROOT; };
@@ -120,12 +133,15 @@
 		DD96905396BCE6A47A3EC73A /* CoreAudioKit.framework */ /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		DE9CB2D716C508FD3CBF58C3 /* include_juce_gui_extra.mm */ /* include_juce_gui_extra.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_gui_extra.mm; path = ../../JuceLibraryCode/include_juce_gui_extra.mm; sourceTree = SOURCE_ROOT; };
 		E13A8D75C6A275E22CE7C33E /* WebKit.framework */ /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		EA6C34694BE045345FF2B049 /* FilterADSR.cpp */ /* FilterADSR.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FilterADSR.cpp; path = ../../Source/Data/FilterADSR.cpp; sourceTree = SOURCE_ROOT; };
 		EE64A0BCE9C1358872A37C28 /* juce_audio_formats */ /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = /Users/owenprendergast/Documents/JUCE/modules/juce_audio_formats; sourceTree = "<absolute>"; };
 		EF5D7259E504E33845B34A52 /* include_juce_audio_plugin_client_ARA.cpp */ /* include_juce_audio_plugin_client_ARA.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_ARA.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_ARA.cpp; sourceTree = SOURCE_ROOT; };
 		F8191F98F5E67EF2F70B5079 /* include_juce_dsp.mm */ /* include_juce_dsp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_dsp.mm; path = ../../JuceLibraryCode/include_juce_dsp.mm; sourceTree = SOURCE_ROOT; };
+		FA8730FD05F32DD5AAB37551 /* ParamControlComponent.h */ /* ParamControlComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ParamControlComponent.h; path = ../../Source/UI/ParamControlComponent.h; sourceTree = SOURCE_ROOT; };
 		FB91C96678211B998C94003A /* RecentFilesMenuTemplate.nib */ /* RecentFilesMenuTemplate.nib */ = {isa = PBXFileReference; lastKnownFileType = file.nib; name = RecentFilesMenuTemplate.nib; path = RecentFilesMenuTemplate.nib; sourceTree = SOURCE_ROOT; };
 		FC2B19B45442067915382F23 /* QuartzCore.framework */ /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FDB938C878F4C179D4C0A1A5 /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakSynth.component; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE19EC7E719427A058778BDC /* SynthFilterVoice.h */ /* SynthFilterVoice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SynthFilterVoice.h; path = ../../Source/Data/SynthFilterVoice.h; sourceTree = SOURCE_ROOT; };
 		FF086F1E6E1935B0634C6985 /* include_juce_audio_plugin_client_AU_1.mm */ /* include_juce_audio_plugin_client_AU_1.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_AU_1.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -188,10 +204,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E78DF8CC7EB4F39D9D53759 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3284335504AB31238503DEA3,
+				C49604E1B645D5A7ADC31417,
+				7C4FCF4A01692DEF684F0B94,
+				FA8730FD05F32DD5AAB37551,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		14E2D36CB429001B903AED07 /* PeakSynth */ = {
 			isa = PBXGroup;
 			children = (
 				7616053A8A5F2396C1C703A5,
+				B0E774C50E68CC3F31BD3C93,
+				0E78DF8CC7EB4F39D9D53759,
 			);
 			name = PeakSynth;
 			sourceTree = "<group>";
@@ -236,6 +265,20 @@
 				2B34410CD45FBBDA1C55C45D,
 			);
 			name = "JUCE Modules";
+			sourceTree = "<group>";
+		};
+		B0E774C50E68CC3F31BD3C93 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7EA542AEDE767C7B4B3BBA27,
+				D0873C8F903E0F7ED4518148,
+				EA6C34694BE045345FF2B049,
+				626E032CF0E517D90E05D2A1,
+				4A37DF1791BFE847565EB8C2,
+				FE19EC7E719427A058778BDC,
+				08A8948DA0017A57B05B8C2A,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		B4447F021001139FB01B4A07 /* Products */ = {
@@ -390,7 +433,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1340;
-				ORGANIZATIONNAME = "";
+				ORGANIZATIONNAME = "Owen Prendergast";
 				TargetAttributes = {
 					05659EFA3C21192322842B99 = {
 						SystemCapabilities = {
@@ -583,6 +626,11 @@
 			files = (
 				88B0C27CD2D88063A86410CF,
 				C02970967FE09F83A27DD553,
+				13D3533CCEA6C2004D18CF91,
+				8DF3DAED2D0ED49D01862AFB,
+				A134390E16C1E203A0761C9E,
+				2F7B24B5E864A2E3A50E99C2,
+				051B5723D333B566DF8A47CD,
 				54C2F7BFD272366DF942F55B,
 				A58D7ADA47E1BE6678B639FB,
 				C937F1FCDF08C39E8BC4D803,
@@ -683,13 +731,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -697,29 +745,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -740,7 +788,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
@@ -794,13 +842,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -808,29 +856,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -850,7 +898,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-lPeakSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -951,13 +999,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -965,29 +1013,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -1007,7 +1055,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
@@ -1061,13 +1109,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -1075,29 +1123,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -1118,7 +1166,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-lPeakSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1173,13 +1221,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -1187,29 +1235,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -1234,7 +1282,7 @@
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lPeakSynth -weak_framework Metal -weak_framework MetalKit";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1290,13 +1338,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -1304,29 +1352,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -1350,7 +1398,7 @@
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lPeakSynth -weak_framework Metal -weak_framework MetalKit";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -d arm64_$arm64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1406,13 +1454,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -1420,29 +1468,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -1466,7 +1514,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lPeakSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
@@ -1585,13 +1633,13 @@
 					"JucePlugin_Enable_ARA=0",
 					"JucePlugin_Name=\\\"PeakSynth\\\"",
 					"JucePlugin_Desc=\\\"PeakSynth\\\"",
-					"JucePlugin_Manufacturer=\\\"yourcompany\\\"",
-					"JucePlugin_ManufacturerWebsite=\\\"www.yourcompany.com\\\"",
-					"JucePlugin_ManufacturerEmail=\\\"\\\"",
+					"JucePlugin_Manufacturer=\\\"Owen\\ Prendergast\\\"",
+					"JucePlugin_ManufacturerWebsite=\\\"https://github.com/owennjpr\\\"",
+					"JucePlugin_ManufacturerEmail=\\\"owenprendergast8@gmail.com\\\"",
 					"JucePlugin_ManufacturerCode=0x4d616e75",
 					"JucePlugin_PluginCode=0x57687a30",
-					"JucePlugin_IsSynth=0",
-					"JucePlugin_WantsMidiInput=0",
+					"JucePlugin_IsSynth=1",
+					"JucePlugin_WantsMidiInput=1",
 					"JucePlugin_ProducesMidiOutput=0",
 					"JucePlugin_IsMidiEffect=0",
 					"JucePlugin_EditorRequiresKeyboardFocus=0",
@@ -1599,29 +1647,29 @@
 					"JucePlugin_VersionCode=0x10000",
 					"JucePlugin_VersionString=\\\"1.0.0\\\"",
 					"JucePlugin_VSTUniqueID=JucePlugin_PluginCode",
-					"JucePlugin_VSTCategory=kPlugCategEffect",
-					"JucePlugin_Vst3Category=\\\"Fx\\\"",
-					"JucePlugin_AUMainType=\\'aufx\\'",
+					"JucePlugin_VSTCategory=kPlugCategSynth",
+					"JucePlugin_Vst3Category=\\\"Instrument|Synth\\\"",
+					"JucePlugin_AUMainType=\\'aumu\\'",
 					"JucePlugin_AUSubType=JucePlugin_PluginCode",
 					"JucePlugin_AUExportPrefix=PeakSynthAU",
 					"JucePlugin_AUExportPrefixQuoted=\\\"PeakSynthAU\\\"",
 					"JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode",
-					"JucePlugin_CFBundleIdentifier=com.yourcompany.PeakSynth",
-					"JucePlugin_AAXIdentifier=com.yourcompany.PeakSynth",
+					"JucePlugin_CFBundleIdentifier=com.OwenPrendergast.PeakSynth",
+					"JucePlugin_AAXIdentifier=com.OwenPrendergast.PeakSynth",
 					"JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode",
 					"JucePlugin_AAXProductId=JucePlugin_PluginCode",
-					"JucePlugin_AAXCategory=0",
+					"JucePlugin_AAXCategory=2048",
 					"JucePlugin_AAXDisableBypass=0",
 					"JucePlugin_AAXDisableMultiMono=0",
-					"JucePlugin_IAAType=0x61757278",
+					"JucePlugin_IAAType=0x61757269",
 					"JucePlugin_IAASubType=JucePlugin_PluginCode",
-					"JucePlugin_IAAName=\\\"yourcompany:\\ PeakSynth\\\"",
+					"JucePlugin_IAAName=\\\"Owen\\ Prendergast:\\ PeakSynth\\\"",
 					"JucePlugin_VSTNumMidiInputs=16",
 					"JucePlugin_VSTNumMidiOutputs=16",
 					"JucePlugin_ARAContentTypes=0",
 					"JucePlugin_ARATransformationFlags=0",
-					"JucePlugin_ARAFactoryID=\\\"com.yourcompany.PeakSynth.factory\\\"",
-					"JucePlugin_ARADocumentArchiveID=\\\"com.yourcompany.PeakSynth.aradocumentarchive.1.0.0\\\"",
+					"JucePlugin_ARAFactoryID=\\\"com.OwenPrendergast.PeakSynth.factory\\\"",
+					"JucePlugin_ARADocumentArchiveID=\\\"com.OwenPrendergast.PeakSynth.aradocumentarchive.1.0.0\\\"",
 					"JucePlugin_ARACompatibleArchiveIDs=\\\"\\\"",
 					"JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
@@ -1644,7 +1692,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_HEADER_SEARCH_PATHS = "/Users/owenprendergast/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode /Users/owenprendergast/Documents/JUCE/modules /Users/owenprendergast/Documents/JUCE/modules/juce_audio_plugin_client/AU";
 				OTHER_LDFLAGS = "-bundle -lPeakSynth -weak_framework Metal -weak_framework MetalKit";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.PeakSynth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OwenPrendergast.PeakSynth;
 				PRODUCT_NAME = "PeakSynth";
 				USE_HEADERMAP = NO;
 				VALID_ARCHS = "i386 x86_64 arm64 arm64e";

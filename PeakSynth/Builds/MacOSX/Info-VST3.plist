@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.PeakSynth</string>
+    <string>com.OwenPrendergast.PeakSynth</string>
     <key>CFBundleName</key>
     <string>PeakSynth</string>
     <key>CFBundleDisplayName</key>

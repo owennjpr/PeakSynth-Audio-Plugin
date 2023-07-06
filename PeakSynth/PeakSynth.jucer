@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="Whz0Fv" name="PeakSynth" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              companyName="Owen Prendergast" companyWebsite="https://github.com/owennjpr"
+              companyEmail="owenprendergast8@gmail.com" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginName="PeakSynth" pluginManufacturer="Owen Prendergast">
   <MAINGROUP id="MdrO7G" name="PeakSynth">
     <GROUP id="{3066DA47-6FE2-173E-B961-49E710E9F931}" name="Source">
       <FILE id="keSuNp" name="PluginProcessor.cpp" compile="1" resource="0"
@@ -11,6 +14,29 @@
       <FILE id="t97VOv" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="HyHbx4" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{E1000815-0F2C-30BE-E016-2598CBFE8870}" name="Data">
+      <FILE id="Cmin35" name="AudioPlayerData.cpp" compile="1" resource="0"
+            file="Source/Data/AudioPlayerData.cpp"/>
+      <FILE id="c2s5Jr" name="AudioPlayerData.h" compile="0" resource="0"
+            file="Source/Data/AudioPlayerData.h"/>
+      <FILE id="MD8g7E" name="FilterADSR.cpp" compile="1" resource="0" file="Source/Data/FilterADSR.cpp"/>
+      <FILE id="qkygVV" name="FilterADSR.h" compile="0" resource="0" file="Source/Data/FilterADSR.h"/>
+      <FILE id="ALcyhI" name="SynthFilterVoice.cpp" compile="1" resource="0"
+            file="Source/Data/SynthFilterVoice.cpp"/>
+      <FILE id="KW0u9R" name="SynthFilterVoice.h" compile="0" resource="0"
+            file="Source/Data/SynthFilterVoice.h"/>
+      <FILE id="zhxbjG" name="SynthSound.h" compile="0" resource="0" file="Source/Data/SynthSound.h"/>
+    </GROUP>
+    <GROUP id="{E83E6E43-74C6-7C09-5221-DB0107338081}" name="UI">
+      <FILE id="qIc4y9" name="AudioPlayerComponent.cpp" compile="1" resource="0"
+            file="Source/UI/AudioPlayerComponent.cpp"/>
+      <FILE id="ejNXCF" name="AudioPlayerComponent.h" compile="0" resource="0"
+            file="Source/UI/AudioPlayerComponent.h"/>
+      <FILE id="NiEQPu" name="ParamControlComponent.cpp" compile="1" resource="0"
+            file="Source/UI/ParamControlComponent.cpp"/>
+      <FILE id="Tu9SoW" name="ParamControlComponent.h" compile="0" resource="0"
+            file="Source/UI/ParamControlComponent.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

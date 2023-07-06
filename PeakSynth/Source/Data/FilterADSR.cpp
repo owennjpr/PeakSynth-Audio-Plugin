@@ -4,6 +4,7 @@
     filterADSR.cpp
     Created: 1 Jul 2023 11:16:46am
     Author:  Owen Prendergast
+    Description: Simple ADSR class used by the SynthFilterVoice
 
   ==============================================================================
 */

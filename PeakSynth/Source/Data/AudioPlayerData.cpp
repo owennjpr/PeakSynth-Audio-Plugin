@@ -4,6 +4,8 @@
     AudioPlayerData.cpp
     Created: 25 Jun 2023 10:58:11am
     Author:  Owen Prendergast
+    Description: Handles the audio file selection and state management, as well as
+                 the playing of that file through the transport source
 
   ==============================================================================
 */

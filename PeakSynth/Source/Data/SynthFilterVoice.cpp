@@ -4,6 +4,9 @@
     SynthFilterVoice.cpp
     Created: 26 Jun 2023 5:44:40pm
     Author:  Owen Prendergast
+    Description: inheriting from SynthesiserVoice, this class handles the actual IIR
+              filtering for the plugin.
+
 
   ==============================================================================
 */

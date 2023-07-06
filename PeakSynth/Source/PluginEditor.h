@@ -1,7 +1,11 @@
 /*
   ==============================================================================
 
-    This file contains the basic framework code for a JUCE plugin editor.
+    Name: PluginEditor.h
+    Author: Owen Prendergast
+    Description: The top level graphical editor for this plugin, initializes the
+                 audio player and param control components which handle the bulk of
+                 the actual UI
 
   ==============================================================================
 */

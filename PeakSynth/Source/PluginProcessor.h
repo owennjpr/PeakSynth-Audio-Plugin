@@ -1,4 +1,12 @@
+/*
+  ==============================================================================
 
+    Name: PluginProcessor.h
+    Author: Owen Prendergast
+    Description: The core processing for this audio plugin, the top level class
+ 
+  ==============================================================================
+*/
 #pragma once
 
 #include <JuceHeader.h>

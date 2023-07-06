@@ -4,6 +4,8 @@
     AudioPlayerComponent.h
     Created: 25 Jun 2023 10:57:20am
     Author:  Owen Prendergast
+    Description: The header file for the audio file player graphical component which
+                 displays file controller buttons and an audio thumbnail.
 
   ==============================================================================
 */

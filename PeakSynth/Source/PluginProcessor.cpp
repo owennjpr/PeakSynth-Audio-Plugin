@@ -1,3 +1,13 @@
+/*
+  ==============================================================================
+
+    Name: PluginProcessor.h
+    Author: Owen Prendergast
+    Description: The core processing for this audio plugin, the top level class
+ 
+  ==============================================================================
+*/
+
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 

@@ -1,12 +1,16 @@
 /*
   ==============================================================================
 
-    ParamControlComponent.cpp
+    ParamControlComponent.h
     Created: 26 Jun 2023 2:05:45pm
     Author:  Owen Prendergast
-
+    Description: Implementation for ParamControl Component, a graphical class which
+                 creates the UI for the left side of the plugin including the title,
+                 adsr knobs and gain, q, and voice selection parameters.
+ 
   ==============================================================================
 */
+
 
 #include <JuceHeader.h>
 #include "ParamControlComponent.h"

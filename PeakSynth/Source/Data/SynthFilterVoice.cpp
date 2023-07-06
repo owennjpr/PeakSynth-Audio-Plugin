@@ -18,19 +18,12 @@ bool SynthFilterVoice::canPlaySound (juce::SynthesiserSound* sound)
 
 void SynthFilterVoice::startNote (int midiNoteNumber, float velocity, juce::SynthesiserSound *sound, int currentPitchWheelPosition)
 {
-//    DBG("NOTE STARTING");
-//    noteActive = true;
     adsr.noteOn();
     currentNote =juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber);
-//    *myFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(), juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber), q, gainFactor);
-    
-
 }
 
 void SynthFilterVoice::stopNote (float velocity, bool allowTailOff)
 {
-//    DBG("note stopping");
-    //noteActive = false;
     adsr.noteOff();
     
     if (!allowTailOff || ! adsr.isActive()) {
@@ -63,9 +56,6 @@ void SynthFilterVoice::prepareToPlay (double sampleRate, int samplesPerBlock, in
 
         isPrepared = true;
     }
-    
-    //*myFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(), 1000, 0.5, 2);
-
 }
 
 void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, int startSample, int numSamples)
@@ -73,7 +63,6 @@ void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, 
     jassert(isPrepared);
     
     if (! isVoiceActive()) {
-        //DBG("inactive voice");
         return;
     }
     
@@ -88,7 +77,6 @@ void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, 
     updateFilter(adsr.getNextSample());
     myFilter.process(juce::dsp::ProcessContextReplacing<float> (block));
     
-    //    auto block = juce::dsp::AudioBlock<float>(outputBuffer).getSubBlock(startSample, numSamples);
     for (int channel = 0; channel < outputBuffer.getNumChannels(); ++channel)
     {
         outputBuffer.copyFrom (channel, startSample, synthBuffer, channel, 0, numSamples);
@@ -100,16 +88,16 @@ void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, 
     }
 }
 
-void SynthFilterVoice::update(const float newGain, const float newQ, const float a, const float d, const float s, const float r) {
-//    DBG("UPDATING");
+void SynthFilterVoice::update(const float newGain, const float newQ, const float a, const float d, const float s, const float r)
+{
     gainFactor = newGain;
     q = newQ;
     adsr.update(a, d, s, r);
 }
 
-void SynthFilterVoice::updateFilter(const float adsrFactor) {
+void SynthFilterVoice::updateFilter(const float adsrFactor)
+{
     if (currentNote != 0.0f) {
-//        DBG(adsrFactor);
         float trueGain = std::fmax(1.0f, adsrFactor*gainFactor);
         
         *myFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(getSampleRate(), currentNote, q, trueGain);

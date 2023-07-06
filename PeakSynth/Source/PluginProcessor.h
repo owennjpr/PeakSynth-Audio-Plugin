@@ -1,10 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
 
 #pragma once
 
@@ -70,13 +63,10 @@ private:
 
     AudioPlayerData AudioFilePlayer;
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
-    using Filter = juce::dsp::IIR::Filter<float>;
     
-    juce::dsp::ProcessorDuplicator<Filter, juce::dsp::IIR::Coefficients<float>> myFilter;
     juce::dsp::Gain<float> fileGain;
     juce::dsp::Limiter<float> hardClipper;
     juce::Synthesiser synth;
-//    float *leaker;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PeakSynthAudioProcessor)

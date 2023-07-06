@@ -14,9 +14,7 @@
 //==============================================================================
 AudioPlayerComponent::AudioPlayerComponent(AudioPlayerData* inputData, juce::AudioProcessorValueTreeState& apvts)
 {
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
-    
+
     addAndMakeVisible(&openButton);
     openButton.setButtonText("Open File");
     openButton.onClick = [this] {openClicked();};
@@ -25,7 +23,6 @@ AudioPlayerComponent::AudioPlayerComponent(AudioPlayerData* inputData, juce::Aud
 
     addAndMakeVisible (&pauseButton);
     pauseButton.setButtonText (" ");
-    //pauseButton.setColour (juce::TextButton::buttonColourId, juce::Colours::grey);
     pauseButton.onClick = [this] { pausePlayClicked(); };
     pauseButton.setEnabled (false);
     
@@ -38,15 +35,10 @@ AudioPlayerComponent::AudioPlayerComponent(AudioPlayerData* inputData, juce::Aud
     
     addAndMakeVisible(gainSlider);
 
-    
-//    playerData->pauseWithDAW = false;
-//    playheadAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(apvts, "auto pause", playheadButton);
     playheadButton.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colour (223, 239, 211));
     playheadButton.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colour (94,126,98));
     playheadButton.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colour (38,40,46));
-
     playheadButton.onClick = [this] { playheadButtonClicked(); };
-
     addAndMakeVisible(playheadButton);
 
     playerData = inputData;
@@ -60,17 +52,10 @@ AudioPlayerComponent::~AudioPlayerComponent()
 
 void AudioPlayerComponent::paint (juce::Graphics& g)
 {
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
-
-       You should replace everything in this method with your own
-       drawing code..
-    */
-
-    g.fillAll (juce::Colour (223, 239, 211));   // clear the background
+    g.fillAll (juce::Colour (223, 239, 211));
 
     g.setColour (juce::Colour (155,184,146));
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
+    g.drawRect (getLocalBounds(), 1);
     
     juce::Rectangle<int> thumbnailBounds (10, 100, getWidth() - 20, getHeight() - 120);
     if (playerData->getFileState(found)) {
@@ -104,7 +89,8 @@ void AudioPlayerComponent::paint (juce::Graphics& g)
 
 }
 
-void AudioPlayerComponent::paintThumbWithFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds) {
+void AudioPlayerComponent::paintThumbWithFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds)
+{
     g.setColour (juce::Colour (155,184,146));
     g.fillRect (thumbnailBounds);
 
@@ -117,7 +103,8 @@ void AudioPlayerComponent::paintThumbWithFile(juce::Graphics& g, juce::Rectangle
     g.drawLine (drawPosition, (float) thumbnailBounds.getY(), drawPosition, (float) thumbnailBounds.getBottom(), 2.0f);
 }
 
-void AudioPlayerComponent::paintThumbNoFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds) {
+void AudioPlayerComponent::paintThumbNoFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds)
+{
     g.setColour(juce::Colour (155,184,146));
     g.fillRect(thumbnailBounds);
     g.setColour(juce::Colour (38,40,46));
@@ -127,8 +114,6 @@ void AudioPlayerComponent::paintThumbNoFile(juce::Graphics& g, juce::Rectangle<i
 
 void AudioPlayerComponent::resized()
 {
-    // This method is where you should set the bounds of any child
-    // components that your component contains..
     openButton.setBounds (10, 10, getWidth() - 20, 20);
     pauseButton.setBounds (10, 40, getWidth() - 20, 20);
     gainSlider.setBounds(10, 70, getWidth() - 100, 20);
@@ -136,17 +121,18 @@ void AudioPlayerComponent::resized()
 
 }
 
-void AudioPlayerComponent::openClicked() {
+void AudioPlayerComponent::openClicked()
+{
     playerData->getNewFile();
 }
 
-
-void AudioPlayerComponent::pausePlayClicked() {
+void AudioPlayerComponent::pausePlayClicked()
+{
     playerData->pauseOrPlay();
 }
 
-void AudioPlayerComponent::playheadButtonClicked() {
-    //DBG("HI");
+void AudioPlayerComponent::playheadButtonClicked()
+{
     playerData->pauseWithDAW = !(playerData->pauseWithDAW);
     if (playerData->pauseWithDAW) {
         playheadButton.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colour (94,126,98));
@@ -166,7 +152,8 @@ void AudioPlayerComponent::timerCallback()
     repaint();
 }
 
-void AudioPlayerComponent::changeListenerCallback (juce::ChangeBroadcaster *source) {
+void AudioPlayerComponent::changeListenerCallback (juce::ChangeBroadcaster *source)
+{
     if (source == playerData->getThumbnail()) {
         repaint();
     }

@@ -41,16 +41,12 @@ private:
     void paintThumbWithFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds);
     void paintThumbNoFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds);
     
-    //bool pauseWithDAW;
-
     juce::Slider gainSlider;
     juce::TextButton playheadButton;
 
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     std::unique_ptr<SliderAttachment> gainAttachment;
     
-//    std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> playheadAttachment;
-
     AudioPlayerData* playerData;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioPlayerComponent)

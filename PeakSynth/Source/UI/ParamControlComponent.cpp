@@ -14,9 +14,6 @@
 //==============================================================================
 ParamControlComponent::ParamControlComponent(juce::AudioProcessorValueTreeState& apvts)
 {
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
-    
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     attackAttachment = std::make_unique<SliderAttachment>(apvts, "attack", attackSlider);
     decayAttachment = std::make_unique<SliderAttachment>(apvts, "decay", decaySlider);
@@ -83,19 +80,10 @@ ParamControlComponent::~ParamControlComponent()
 
 void ParamControlComponent::paint (juce::Graphics& g)
 {
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
-
-       You should replace everything in this method with your own
-       drawing code..
-    */
-
-    g.fillAll (juce::Colour (223, 239, 211));   // clear the background
+    g.fillAll (juce::Colour (223, 239, 211));
 
     g.setColour (juce::Colour (155,184,146));
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
-//    g.setColour(juce::Colour (38,40,46));
-//    g.drawFittedText ("Q Synth", getLocalBounds(), juce::Justification::topLeft, 1);
+    g.drawRect (getLocalBounds(), 1);
 }
 
 void ParamControlComponent::resized()
@@ -111,13 +99,11 @@ void ParamControlComponent::resized()
     
     sustainSlider.setBounds(sliderStartX, sliderStartY, sliderWidth, sliderHeight);
     releaseSlider.setBounds(sustainSlider.getRight() + padding, sliderStartY, sliderWidth, sliderHeight);
-    
     attackSlider.setBounds(sliderStartX, sliderStartY - sliderHeight - 3*padding, sliderWidth, sliderHeight);
     decaySlider.setBounds(attackSlider.getRight() + padding, sliderStartY - sliderHeight  - 3*padding, sliderWidth, sliderHeight);
 
     gainSlider.setBounds(horizontalSliderStartX, 100, bounds.getWidth() - 150, 30);
     qSlider.setBounds(horizontalSliderStartX, gainSlider.getBottom() + padding, bounds.getWidth()  - 150, 30);
-
 
     voicesBox.setBounds(bounds.getRight() - 75, gainSlider.getBottom() + padding, 75, 30);
     
@@ -127,7 +113,8 @@ void ParamControlComponent::resized()
 }
 
 
-void ParamControlComponent::setADSRSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText) {
+void ParamControlComponent::setADSRSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText)
+{
     slider.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
     slider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 75, 25);
     slider.setTextBoxIsEditable(true);
@@ -147,7 +134,8 @@ void ParamControlComponent::setADSRSliderParams(juce::Slider& slider, juce::Labe
 
 }
 
-void ParamControlComponent::setHoriSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText) {
+void ParamControlComponent::setHoriSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText)
+{
     slider.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
     slider.setTextBoxStyle(juce::Slider::TextBoxLeft, true, 50, 25);
     slider.setTextBoxIsEditable(true);

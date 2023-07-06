@@ -1,11 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -22,20 +14,20 @@ PeakSynthAudioProcessor::PeakSynthAudioProcessor()
                        ), apvts(*this, nullptr, "Parameters", createParameterLayout()), AudioFilePlayer()
 #endif
 {
-//    void *leaker = malloc(1000000000000000000);
-
+    //Init with 4 voices
     synth.addSound(new SynthSound());
     synth.addVoice(new SynthFilterVoice());
     synth.addVoice(new SynthFilterVoice());
     synth.addVoice(new SynthFilterVoice());
     synth.addVoice(new SynthFilterVoice());
     
+    
+    // Establish parameter Listeners
     apvts.addParameterListener("attack", this);
     apvts.addParameterListener("decay", this);
     apvts.addParameterListener("sustain", this);
     apvts.addParameterListener("release", this);
 
-    
     apvts.addParameterListener("filter gain", this);
     apvts.addParameterListener("filter q", this);
     apvts.addParameterListener("voices", this);
@@ -49,10 +41,13 @@ PeakSynthAudioProcessor::~PeakSynthAudioProcessor()
     synth.clearSounds();
 }
 
-juce::AudioProcessorValueTreeState::ParameterLayout PeakSynthAudioProcessor::createParameterLayout() {
+
+/* Creating All Parameters for APVTS */
+juce::AudioProcessorValueTreeState::ParameterLayout PeakSynthAudioProcessor::createParameterLayout()
+{
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
     
-    //ADSR
+    //ADSR Parameters
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("attack", 1), "Attack", juce::NormalisableRange<float>{ 0.1f, 3.0, 0.01}, 0.1f));
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("decay", 1), "Decay", juce::NormalisableRange<float>{ 0.1f, 3.0, 0.01}, 0.1f));
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("sustain", 1), "Sustain", juce::NormalisableRange<float>{ 0.1f, 1.0, 0.01}, 1.0f));
@@ -63,51 +58,38 @@ juce::AudioProcessorValueTreeState::ParameterLayout PeakSynthAudioProcessor::cre
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("filter q", 1), "Filter Q", juce::NormalisableRange<float>(5.0f, 20.0f, 0.1f), 10.0f));
     layout.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID("voices", 1), "Number of Voices", juce::StringArray {"1", "4", "8"}, 1));
 
-    //File Controls
+    //File Control
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("file gain", 1), "File Gain", juce::NormalisableRange<float>(-12.0f, 12.0f, 0.1f), 0.0f));
-//    layout.add(std::make_unique<juce::AudioParameterBool>(juce::ParameterID("auto pause", 1), "Auto Pause", false));
 
     return layout;
 }
 
-void PeakSynthAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue) {
+/* Callback for the APVTS Parameter Listeners */
+void PeakSynthAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue)
+{
     if (parameterID == "filter gain") {
-        //DBG("FILTER GAIN " + std::to_string(newValue));
         updateVoices(newValue, apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
-    }
-    if (parameterID == "filter q") {
-        //DBG("FILTER Q " + std::to_string(newValue));
+    } else if (parameterID == "filter q") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), newValue, apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
-    }
-    if (parameterID == "voices") {
-        //DBG("VOICES " + std::to_string(newValue));
+    } else if (parameterID == "voices") {
         updateVoiceCount(newValue);
-    }
-    if (parameterID == "file gain") {
-        //DBG("FILE GAIN " + std::to_string(newValue));
+    } else if (parameterID == "file gain") {
         fileGain.setGainDecibels(newValue);
-    }
-    if (parameterID == "attack") {
+    } else if (parameterID == "attack") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), newValue, apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
-    }
-    if (parameterID == "decay") {
+    } else if (parameterID == "decay") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), newValue, apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
-    }
-    if (parameterID == "sustain") {
+    } else if (parameterID == "sustain") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), newValue, apvts.getRawParameterValue("release")->load());
-    }
-    if (parameterID == "release") {
+    } else if (parameterID == "release") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), newValue);
     }
-
-//    if (parameterID == "auto pause") {
-//        DBG(std::to_string(newValue));
-//    }
-
-
 }
 
-void PeakSynthAudioProcessor::updateVoices(float newGain, float newQ, float a, float d, float s, float r) {
+
+/* Passes new parameter changes into each Synthesizer voice */
+void PeakSynthAudioProcessor::updateVoices(float newGain, float newQ, float a, float d, float s, float r)
+{
     for (int i = 0; i < synth.getNumVoices(); i++)
     {
         if (auto voice = dynamic_cast<SynthFilterVoice*>(synth.getVoice(i))) {
@@ -116,9 +98,13 @@ void PeakSynthAudioProcessor::updateVoices(float newGain, float newQ, float a, f
     }
 }
 
-void PeakSynthAudioProcessor::updateVoiceCount(float newV) {
+/* updates the number of usable voices to match the new parameter value */
+void PeakSynthAudioProcessor::updateVoiceCount(float newV)
+{
     float currValue = synth.getNumVoices();
     float newValue = newV;
+    
+    // converting from index to value
     if (newValue == 0) {
         newValue = 1;
     } else if (newValue == 1) {
@@ -127,10 +113,9 @@ void PeakSynthAudioProcessor::updateVoiceCount(float newV) {
         newValue = 8;
     }
     
+    // updating the voice count
     if (currValue > newValue) {
-        //DBG("hi");
         for (int i = currValue-1; i > newValue-1; i--) {
-            //DBG(i);
             synth.removeVoice(i);
         }
     } else if (currValue < newValue) {
@@ -213,10 +198,9 @@ void PeakSynthAudioProcessor::changeProgramName (int index, const juce::String& 
 //==============================================================================
 void PeakSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
     AudioFilePlayer.prepareToPlay(sampleRate, samplesPerBlock);
     
+    // creating a Process Spec for DSP objects
     juce::dsp::ProcessSpec spec;
     spec.maximumBlockSize = samplesPerBlock;
     spec.numChannels = getTotalNumOutputChannels();
@@ -226,6 +210,7 @@ void PeakSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     fileGain.reset();
     fileGain.setGainDecibels(0.0f);
     
+    //creating a limiter that will cut off anything over 0db. this plugin requires large gain boosts to function properly, which can lead to some unexpected peaks which need to be managed
     hardClipper.prepare(spec);
     hardClipper.reset();
     hardClipper.setThreshold(0.0f);
@@ -233,6 +218,7 @@ void PeakSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
         
     synth.setCurrentPlaybackSampleRate(sampleRate);
 
+    // preparing synth voices
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if (auto voice = dynamic_cast<SynthFilterVoice*>(synth.getVoice(i))) {
             voice->prepareToPlay(sampleRate, samplesPerBlock, getTotalNumOutputChannels());
@@ -285,36 +271,28 @@ void PeakSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         buffer.clear (i, 0, buffer.getNumSamples());
     }
     
-    
-//    if (AudioFilePlayer.getTSource()->isPlaying() && !(getPlayHead()->getPosition()->getIsPlaying())) {
-//        DBG("YO");
-//    }
-    
+    // for matching playhead to transport source playback
     AudioFilePlayer.checkPlayhead(getPlayHead()->getPosition()->getIsPlaying());
     
-        
-//    AudioFilePlayer.processNextBlock(buffer, midiMessages);
     juce::dsp::AudioBlock<float> block(buffer);
     
-    
+    // synth processing when transport source is active
     if (AudioFilePlayer.getFileState(found) &&     !AudioFilePlayer.getFileState(paused)) {
         
         AudioFilePlayer.processNextBlock(buffer, midiMessages);
-
         fileGain.process(juce::dsp::ProcessContextReplacing<float> (block));
-
         synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
         
     }
+    
+    // applying limiter regardless of what processing has been done
     hardClipper.process(juce::dsp::ProcessContextReplacing<float> (block));
-
-    //}
 }
 
 //==============================================================================
 bool PeakSynthAudioProcessor::hasEditor() const
 {
-    return true; // (change this to false if you choose to not supply an editor)
+    return true;
 }
 
 juce::AudioProcessorEditor* PeakSynthAudioProcessor::createEditor()
@@ -325,9 +303,7 @@ juce::AudioProcessorEditor* PeakSynthAudioProcessor::createEditor()
 //==============================================================================
 void PeakSynthAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    // adding the active file path as a child to the APVTS to store it
     juce::ValueTree fileNode ("fileNode");
     fileNode.setProperty("path", AudioFilePlayer.getCurrFile()->getFullPathName(), nullptr);
     apvts.state.addChild(fileNode, 0, nullptr);
@@ -338,8 +314,7 @@ void PeakSynthAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 
 void PeakSynthAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+    
     auto tree = juce::ValueTree::readFromData(data, sizeInBytes);
         if (tree.isValid()) {
             apvts.replaceState(tree);
@@ -351,6 +326,8 @@ void PeakSynthAudioProcessor::setStateInformation (const void* data, int sizeInB
                          apvts.getRawParameterValue("release")->load());
             updateVoiceCount(apvts.getRawParameterValue("voices")->load());
             fileGain.setGainDecibels(apvts.getRawParameterValue("file gain")->load());
+            
+            // restoring the file
             if (tree.getNumChildren() != 0) {
                 auto filepath = tree.getChild(0).getProperty("path");
                 auto currentFile = juce::File::createFileWithoutCheckingPath(filepath);

@@ -42,7 +42,6 @@ private:
 
     bool isPrepared { false };
     
-//    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SynthFilterVoice);
     JUCE_LEAK_DETECTOR(SynthFilterVoice);
 
 };

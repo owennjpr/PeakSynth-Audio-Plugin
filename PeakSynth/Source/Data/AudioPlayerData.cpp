@@ -108,9 +108,10 @@ void AudioPlayerData::setFileState(juce::File newFile)
 }
 
 /* determining whether to pause or play based on the playhead's playing status */
-void AudioPlayerData::checkPlayhead(bool isPlaying)
+void AudioPlayerData::checkPlayhead(bool isPlaying, bool *shouldPlay)
 {
     if (pauseWithDAW && fileFound) {
+        *shouldPlay = isPlaying;
         if (isPlaying && filePaused) {
             filePaused = false;
             transportSource.start();

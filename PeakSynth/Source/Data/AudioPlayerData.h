@@ -31,9 +31,10 @@ public:
     juce::AudioTransportSource* getTSource();
     juce::File* getCurrFile();
     void setFileState(juce::File newFile);
-    void checkPlayhead(bool isPlaying);
+    void checkPlayhead(bool isPlaying, bool *shouldPlay);
 
     bool pauseWithDAW { false };
+
 
 private:
     enum stateIndex { found, paused };

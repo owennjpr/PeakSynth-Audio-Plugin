@@ -64,7 +64,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout PeakSynthAudioProcessor::cre
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("release", 1), "Release", juce::NormalisableRange<float>{ 0.1f, 3.0, 0.01}, 0.4f));
     
     //Filter Controls
-    layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("filter gain", 1), "Filter Gain", juce::NormalisableRange<float>(1.0f, 15.0f, 0.1f), 5.0f));
+    layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("filter gain", 1), "Filter Gain", juce::NormalisableRange<float>(1.0f, 20.0f, 0.1f), 5.0f));
     layout.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID("filter q", 1), "Filter Q", juce::NormalisableRange<float>(5.0f, 20.0f, 0.1f), 10.0f));
     layout.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID("voices", 1), "Number of Voices", juce::StringArray {"1", "4", "8"}, 1));
 
@@ -281,13 +281,15 @@ void PeakSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         buffer.clear (i, 0, buffer.getNumSamples());
     }
     
+    
     // for matching playhead to transport source playback
-    AudioFilePlayer.checkPlayhead(getPlayHead()->getPosition()->getIsPlaying());
+    bool play = true;
+    AudioFilePlayer.checkPlayhead(getPlayHead()->getPosition()->getIsPlaying(), &play);
     
     juce::dsp::AudioBlock<float> block(buffer);
     
     // synth processing when transport source is active
-    if (AudioFilePlayer.getFileState(found) &&     !AudioFilePlayer.getFileState(paused)) {
+    if (play && AudioFilePlayer.getFileState(found) && !AudioFilePlayer.getFileState(paused)) {
         
         AudioFilePlayer.processNextBlock(buffer, midiMessages);
         fileGain.process(juce::dsp::ProcessContextReplacing<float> (block));
@@ -324,7 +326,7 @@ void PeakSynthAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 
 void PeakSynthAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    
+    // restoring the tree
     auto tree = juce::ValueTree::readFromData(data, sizeInBytes);
         if (tree.isValid()) {
             apvts.replaceState(tree);

@@ -1,4 +1,10 @@
-# JucePeakSynth
+# PeakSynth Audio Plugin
+
+<img width="900" alt="Screenshot 2023-07-08 at 3 44 10 PM" src="https://github.com/owennjpr/JucePeakSynth/assets/123135948/3960b4f5-36df-422b-8d0d-568b199de30d">
+
+----- What this Plugin Does -----
+
+PeakSynth is a mix between a synthesizer and a sampler that instead of oscillators which sound from scratch, uses IIR filtering to "play" an audio file with midi. User Midi input is converted into a series of peak filters at frequencies corresponding to the notes being played. Depending on the character of the audio file being used, this can lead to lots of interesting outcomes. While this plugin is intended to be used for the most part with atonal audio like percussion or ambient noise (rain sounds, footsteps, wind, etc.) but any kind of audio input can generate some interesting results. This plugin is early in development and therefor may have some bugs or issues. If you have any issues with its use or suggestions for potential plugin features, feel free to email me at owenprendergast8@gmail.com.
 
 ----- How to Use this Plugin -----
 
@@ -8,4 +14,25 @@ The File Player Module:
 The Synth Module:
   Once a file is playing this is the module that allows you to use midi input to control the tonal nature of the sound. The gain slider controls the maximum gain level of the peak filter whenever you play a note. The Q slider controls the Q of the filter, with higher values creating a thinner peak. the Attack, Decay, Sustain, and Release knobs are standard ADSR controls which control the time it takes for the filter to reach its maximum gain and how long it takes to tail off in seconds. There is also a number of voices dropdown which allows you to determine whether the plugin is monophonic or 4-8 note polyphonic. 
 
-----------------------------------
+----- Resources Used -----
+
+Official Juce Resources:
+
+https://docs.juce.com/master/index.html
+
+https://docs.juce.com/master/tutorial_playing_sound_files.html
+
+https://docs.juce.com/master/tutorial_audio_thumbnail.html
+
+https://docs.juce.com/master/tutorial_look_and_feel_customisation.html
+
+
+Other Resources:
+
+https://jucestepbystep.wordpress.com/
+
+https://www.youtube.com/watch?v=i_Iq4_Kd7Rc
+
+https://www.youtube.com/playlist?list=PLLgJJsrdwhPwJimt5vtHtNmu63OucmPck
+
+https://www.youtube.com/playlist?list=PL7Ysno2nO-6JVw5dTSYCmxdvxFS42kuve

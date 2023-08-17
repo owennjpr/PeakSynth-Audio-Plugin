@@ -23,16 +23,17 @@
 class PeakSynthAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
+    // standard JUCE public methods
     PeakSynthAudioProcessorEditor (PeakSynthAudioProcessor&);
     ~PeakSynthAudioProcessorEditor() override;
 
-    //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
 
 private:
     PeakSynthAudioProcessor& audioProcessor;
     
+    // private component variables
     AudioPlayerComponent audioPlayerComp;
     ParamControlComponent paramControlComp;
 

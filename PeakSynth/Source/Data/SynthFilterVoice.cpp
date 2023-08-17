@@ -7,7 +7,6 @@
     Description: inheriting from SynthesiserVoice, this class handles the actual IIR
               filtering for the plugin.
 
-
   ==============================================================================
 */
 
@@ -19,12 +18,14 @@ bool SynthFilterVoice::canPlaySound (juce::SynthesiserSound* sound)
     
 }
 
+/* when a note is pressed */
 void SynthFilterVoice::startNote (int midiNoteNumber, float velocity, juce::SynthesiserSound *sound, int currentPitchWheelPosition)
 {
     adsr.noteOn();
     currentNote =juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber);
 }
 
+/* when a note is released */
 void SynthFilterVoice::stopNote (float velocity, bool allowTailOff)
 {
     adsr.noteOff();
@@ -45,8 +46,10 @@ void SynthFilterVoice::pitchWheelMoved (int newPitchWheelValue) {
     
 }
 
+/* the instance of the prepare to play method for this synth voice */
 void SynthFilterVoice::prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels)
 {
+    // do not want to prepare the same voice multiple times
     if (!isPrepared) {
         juce::dsp::ProcessSpec spec;
         spec.maximumBlockSize = samplesPerBlock;
@@ -61,13 +64,17 @@ void SynthFilterVoice::prepareToPlay (double sampleRate, int samplesPerBlock, in
     }
 }
 
+/* the actual audio processing for the voice */
 void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, int startSample, int numSamples)
 {
+    // cannot render next audio block if the voice has not been prepared
     jassert(isPrepared);
     
     if (! isVoiceActive()) {
         return;
     }
+    
+    // copying data over into the synth buffer
     
     synthBuffer.setSize (outputBuffer.getNumChannels(), numSamples, false, false, true);
     adsr.applyEnvelopeToBuffer (synthBuffer, 0, numSamples);
@@ -80,6 +87,7 @@ void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, 
     updateFilter(adsr.getNextSample());
     myFilter.process(juce::dsp::ProcessContextReplacing<float> (block));
     
+    // copying back into the output buffer
     for (int channel = 0; channel < outputBuffer.getNumChannels(); ++channel)
     {
         outputBuffer.copyFrom (channel, startSample, synthBuffer, channel, 0, numSamples);
@@ -91,6 +99,7 @@ void SynthFilterVoice::renderNextBlock (juce::AudioBuffer<float> &outputBuffer, 
     }
 }
 
+/* update method for all of the voice's parameters*/
 void SynthFilterVoice::update(const float newGain, const float newQ, const float a, const float d, const float s, const float r)
 {
     gainFactor = newGain;
@@ -98,6 +107,7 @@ void SynthFilterVoice::update(const float newGain, const float newQ, const float
     adsr.update(a, d, s, r);
 }
 
+/* updating the level of filter gain every render call to match with the adsr factor */
 void SynthFilterVoice::updateFilter(const float adsrFactor)
 {
     if (currentNote != 0.0f) {

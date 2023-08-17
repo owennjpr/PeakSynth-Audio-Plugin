@@ -26,11 +26,9 @@ PeakSynthAudioProcessor::PeakSynthAudioProcessor()
 {
     //Init with 4 voices
     synth.addSound(new SynthSound());
-    synth.addVoice(new SynthFilterVoice());
-    synth.addVoice(new SynthFilterVoice());
-    synth.addVoice(new SynthFilterVoice());
-    synth.addVoice(new SynthFilterVoice());
-    
+    for (int i = 0; i < 4; i++) {
+        synth.addVoice(new SynthFilterVoice());
+    }
     
     // Establish parameter Listeners
     apvts.addParameterListener("attack", this);
@@ -47,6 +45,7 @@ PeakSynthAudioProcessor::PeakSynthAudioProcessor()
 
 PeakSynthAudioProcessor::~PeakSynthAudioProcessor()
 {
+    // clearing synth data
     synth.clearVoices();
     synth.clearSounds();
 }
@@ -77,22 +76,31 @@ juce::AudioProcessorValueTreeState::ParameterLayout PeakSynthAudioProcessor::cre
 /* Callback for the APVTS Parameter Listeners */
 void PeakSynthAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue)
 {
+    // each parameter has a different callback processes
     if (parameterID == "filter gain") {
         updateVoices(newValue, apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
+        
     } else if (parameterID == "filter q") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), newValue, apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
+        
     } else if (parameterID == "voices") {
         updateVoiceCount(newValue);
+        
     } else if (parameterID == "file gain") {
         fileGain.setGainDecibels(newValue);
+        
     } else if (parameterID == "attack") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), newValue, apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
+        
     } else if (parameterID == "decay") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), newValue, apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
+        
     } else if (parameterID == "sustain") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), newValue, apvts.getRawParameterValue("release")->load());
+        
     } else if (parameterID == "release") {
         updateVoices(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), newValue);
+        
     }
 }
 
@@ -125,18 +133,27 @@ void PeakSynthAudioProcessor::updateVoiceCount(float newV)
     
     // updating the voice count
     if (currValue > newValue) {
+        
         for (int i = currValue-1; i > newValue-1; i--) {
             synth.removeVoice(i);
         }
+        
     } else if (currValue < newValue) {
+        
         for (int i = 0; i < newValue - currValue; i++) {
             synth.addVoice(new SynthFilterVoice);
         }
         
+        // each newly added voice must prepared to play and updated with the correct values
         for (int i = currValue; i < newValue; i++) {
             if (auto voice = dynamic_cast<SynthFilterVoice*>(synth.getVoice(i))) {
                 voice->prepareToPlay(getSampleRate(), getSampleRate()/getBlockSize(), getTotalNumOutputChannels());
-                voice->update(apvts.getRawParameterValue("filter gain")->load(), apvts.getRawParameterValue("filter q")->load(), apvts.getRawParameterValue("attack")->load(), apvts.getRawParameterValue("decay")->load(), apvts.getRawParameterValue("sustain")->load(), apvts.getRawParameterValue("release")->load());
+                voice->update(apvts.getRawParameterValue("filter gain")->load(),
+                              apvts.getRawParameterValue("filter q")->load(),
+                              apvts.getRawParameterValue("attack")->load(),
+                              apvts.getRawParameterValue("decay")->load(),
+                              apvts.getRawParameterValue("sustain")->load(),
+                              apvts.getRawParameterValue("release")->load());
             }
         }
     }
@@ -216,11 +233,14 @@ void PeakSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     spec.numChannels = getTotalNumOutputChannels();
     spec.sampleRate = sampleRate;
    
+    // preparing the gain
     fileGain.prepare(spec);
     fileGain.reset();
     fileGain.setGainDecibels(0.0f);
     
-    //creating a limiter that will cut off anything over 0db. this plugin requires large gain boosts to function properly, which can lead to some unexpected peaks which need to be managed
+    // creating a limiter that will cut off anything over 0db.
+    // this plugin requires large gain boosts to function properly,
+    // which can lead to some unexpected peaks that need to be managed
     hardClipper.prepare(spec);
     hardClipper.reset();
     hardClipper.setThreshold(0.0f);
@@ -240,8 +260,6 @@ void PeakSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 
 void PeakSynthAudioProcessor::releaseResources()
 {
-    // When playback stops, you can use this as an opportunity to free up any
-    // spare memory, etc.
     AudioFilePlayer.releaseResources();
 }
 
@@ -282,7 +300,7 @@ void PeakSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     }
     
     
-    // for matching playhead to transport source playback
+    // for matching the playhead to transport source playback
     bool play = true;
     AudioFilePlayer.checkPlayhead(getPlayHead()->getPosition()->getIsPlaying(), &play);
     

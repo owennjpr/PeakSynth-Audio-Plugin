@@ -21,29 +21,32 @@ class AudioPlayerComponent  : public juce::Component, public juce::ChangeListene
 
 {
 public:
+    // constructor and deconstructor
     AudioPlayerComponent(AudioPlayerData* inputData, juce::AudioProcessorValueTreeState& apvts);
     ~AudioPlayerComponent() override;
 
+    // other public methods
     void paint (juce::Graphics&) override;
     void resized() override;
     void changeListenerCallback (juce::ChangeBroadcaster *source) override;
 
 
 private:
-    enum stateIndex { found, paused };
-
+    
+    // private methods
     void timerCallback() override;
-
-    juce::TextButton openButton;
-    juce::TextButton pauseButton;
-
     void openClicked();
     void pausePlayClicked();
     void playheadButtonClicked();
     void paintThumbWithFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds);
     void paintThumbNoFile(juce::Graphics& g, juce::Rectangle<int>& thumbnailBounds);
     
-    juce::Slider gainSlider;
+    //private variables, enums, definitions
+    enum stateIndex { found, paused };
+
+    juce::TextButton openButton;
+    juce::TextButton pauseButton;
+        juce::Slider gainSlider;
     juce::TextButton playheadButton;
 
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;

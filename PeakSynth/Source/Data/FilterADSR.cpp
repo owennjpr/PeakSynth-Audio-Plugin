@@ -11,6 +11,7 @@
 
 #include "FilterADSR.h"
 
+/* updates the adsr parameters */
 void FilterADSR::update (const float attack, const float decay, const float sustain, const float release)
 {
     adsrParams.attack = attack;

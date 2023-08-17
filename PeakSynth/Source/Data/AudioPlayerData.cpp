@@ -14,6 +14,7 @@
 
 AudioPlayerData::AudioPlayerData() : thumbnailCache(3), thumbnail(512, formatManager, thumbnailCache)
 {
+    //registering  audio formats to use
     formatManager.registerBasicFormats();
     fileFound = false;
     filePaused = false;
@@ -45,12 +46,14 @@ void AudioPlayerData::processNextBlock(juce::AudioBuffer<float>& buffer, juce::M
         return;
     }
 
+    // loop the file if the end has been reached
     if (fileFound && transportSource.hasStreamFinished()) {
         transportSource.stop();
         transportSource.setPosition(0.0);
         transportSource.start();
     }
 
+    // process the audio
     transportSource.getNextAudioBlock(juce::AudioSourceChannelInfo(buffer));
 }
 
@@ -62,6 +65,7 @@ void AudioPlayerData::getNewFile()
     fileFound = false;
     currFile = juce::File();
     
+    // initializing a file chooser
     chooser = std::make_unique<juce::FileChooser> ("Select a .wav, .aif, or .aiff file", juce::File{}, "*.wav;*.aif;*.aiff");
     auto chooserFlags = juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles;
     

@@ -17,26 +17,30 @@
 class AudioPlayerData
 {
 public:
+    // constructor and deconstructor
     AudioPlayerData();
     ~AudioPlayerData();
+    
+    // public methods
     void prepareToPlay(double sampleRate, int samplesPerBlock);
     void releaseResources();
     void processNextBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages);
     void getNewFile();
     void pauseOrPlay();
-    
-
     bool getFileState(int index);
+    void setFileState(juce::File newFile);
+    void checkPlayhead(bool isPlaying, bool *shouldPlay);
+    
+    // public variables
     juce::AudioThumbnail* getThumbnail();
     juce::AudioTransportSource* getTSource();
     juce::File* getCurrFile();
-    void setFileState(juce::File newFile);
-    void checkPlayhead(bool isPlaying, bool *shouldPlay);
-
     bool pauseWithDAW { false };
 
 
 private:
+    
+    // private variables
     enum stateIndex { found, paused };
 
     std::unique_ptr<juce::FileChooser> chooser;

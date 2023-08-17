@@ -21,15 +21,22 @@
 class ParamControlComponent  : public juce::Component
 {
 public:
+    // constructor and deconstructor
     ParamControlComponent(juce::AudioProcessorValueTreeState& apvts);
     ~ParamControlComponent() override;
 
+    // standard component function declarations
     void paint (juce::Graphics&) override;
     void resized() override;
 
 private:
+    // private methods
+    void setADSRSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText);
+    void setHoriSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText);
+
+    // private variables
     
-    //declaring sliders
+    // declaring sliders
     juce::Slider attackSlider;
     juce::Slider decaySlider;
     juce::Slider sustainSlider;
@@ -37,9 +44,8 @@ private:
 
     juce::Slider gainSlider;
     juce::Slider qSlider;
-    
    
-    //declaring labels
+    // declaring labels
     juce::Font labelFont;
     
     juce::Label attackLabel;
@@ -54,9 +60,6 @@ private:
     
     juce::ComboBox voicesBox;
     
-    void setADSRSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText);
-    void setHoriSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText);
-
     // declaring attachments
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     std::unique_ptr<SliderAttachment> attackAttachment;

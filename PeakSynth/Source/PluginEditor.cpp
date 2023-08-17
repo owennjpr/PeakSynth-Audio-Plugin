@@ -19,6 +19,7 @@ PeakSynthAudioProcessorEditor::PeakSynthAudioProcessorEditor (PeakSynthAudioProc
 {
     setSize (900, 600);
     
+    // setting color palette with look and feel
     getLookAndFeel().setColour (juce::Slider::thumbColourId, juce::Colour (38,40,46));
     getLookAndFeel().setColour(juce::Slider::backgroundColourId, juce::Colour (155,184,146));
     getLookAndFeel().setColour(juce::Slider::trackColourId, juce::Colour (94,126,98));
@@ -27,6 +28,7 @@ PeakSynthAudioProcessorEditor::PeakSynthAudioProcessorEditor (PeakSynthAudioProc
     getLookAndFeel().setColour(juce::ComboBox::ColourIds::outlineColourId, juce::Colour (38,40,46));
     getLookAndFeel().setColour(juce::ComboBox::ColourIds::backgroundColourId, juce::Colour (155,184,146));
     
+    // generating the components
     addAndMakeVisible(audioPlayerComp);
     addAndMakeVisible(paramControlComp);
 }
@@ -43,6 +45,7 @@ void PeakSynthAudioProcessorEditor::paint (juce::Graphics& g)
 
 void PeakSynthAudioProcessorEditor::resized()
 {
+    // each component gets half the window
     audioPlayerComp.setBounds(getWidth()/2, 0, getWidth()/2, getHeight());
     paramControlComp.setBounds(0, 0, getWidth()/2, getHeight());
 }

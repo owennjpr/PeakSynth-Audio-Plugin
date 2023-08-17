@@ -18,19 +18,20 @@
 //==============================================================================
 ParamControlComponent::ParamControlComponent(juce::AudioProcessorValueTreeState& apvts)
 {
+    // initializing attachments for all apvts associated parameter sliders
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     attackAttachment = std::make_unique<SliderAttachment>(apvts, "attack", attackSlider);
     decayAttachment = std::make_unique<SliderAttachment>(apvts, "decay", decaySlider);
     sustainAttachment = std::make_unique<SliderAttachment>(apvts, "sustain", sustainSlider);
     releaseAttachment = std::make_unique<SliderAttachment>(apvts, "release", releaseSlider);
-
     gainAttachment = std::make_unique<SliderAttachment>(apvts, "filter gain", gainSlider);
     qAttachment = std::make_unique<SliderAttachment>(apvts, "filter q", qSlider);
     
-    
+    // setting font look and feel for title
     labelFont.getDefaultMonospacedFontName();
     labelFont.setTypefaceStyle("Bold");
     
+    // adding the title
     addAndMakeVisible(title);
     title.setText("Peak", juce::dontSendNotification);
     title.setJustificationType(juce::Justification::topLeft);
@@ -43,6 +44,7 @@ ParamControlComponent::ParamControlComponent(juce::AudioProcessorValueTreeState&
     title2.setFont(juce::Font (60.0f, juce::Font::bold));
     title2.setColour(juce::Label::textColourId, juce::Colour (94,126,98));
 
+    // setting the slider styles for each parameter
     setADSRSliderParams(attackSlider, attackLabel, "Attack");
     setADSRSliderParams(decaySlider, decayLabel, "Decay");
     setADSRSliderParams(sustainSlider, sustainLabel, "Sustain");
@@ -50,8 +52,8 @@ ParamControlComponent::ParamControlComponent(juce::AudioProcessorValueTreeState&
     
     setHoriSliderParams(gainSlider, gainLabel, "Gain Factor");
     setHoriSliderParams(qSlider, qLabel, "Q");
-
     
+    // initializing the voice combo box attachment
     voicesAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(apvts, "voices", voicesBox);
     
     int initCount = apvts.getRawParameterValue("voices")->load();
@@ -63,6 +65,7 @@ ParamControlComponent::ParamControlComponent(juce::AudioProcessorValueTreeState&
         initCount = 8;
     }
 
+    // setting the combo box style
     voicesBox.setTextWhenNothingSelected(std::to_string(initCount));
     voicesBox.addItem("1", 1);
     voicesBox.addItem("4", 2);
@@ -82,14 +85,16 @@ ParamControlComponent::~ParamControlComponent()
 {
 }
 
+/* drawing the component */
 void ParamControlComponent::paint (juce::Graphics& g)
 {
+    // simple bound coloring
     g.fillAll (juce::Colour (223, 239, 211));
-
     g.setColour (juce::Colour (155,184,146));
     g.drawRect (getLocalBounds(), 1);
 }
 
+/* handling bounds for the component*/
 void ParamControlComponent::resized()
 {
     const auto bounds = getLocalBounds().reduced(10);
@@ -116,7 +121,7 @@ void ParamControlComponent::resized()
 
 }
 
-
+/* initializing the style for the ADSR rotary dial sliders */
 void ParamControlComponent::setADSRSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText)
 {
     slider.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
@@ -138,6 +143,7 @@ void ParamControlComponent::setADSRSliderParams(juce::Slider& slider, juce::Labe
 
 }
 
+/* initializing the style for the horizontal sliders used in this component */
 void ParamControlComponent::setHoriSliderParams(juce::Slider& slider, juce::Label& label, std::string labelText)
 {
     slider.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);

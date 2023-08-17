@@ -4,7 +4,9 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               companyName="Owen Prendergast" companyWebsite="https://github.com/owennjpr"
               companyEmail="owenprendergast8@gmail.com" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
-              pluginName="PeakSynth" pluginManufacturer="Owen Prendergast">
+              pluginName="PeakSynth" pluginManufacturer="Owen Prendergast"
+              version="1.0.0" pluginCode="Pksn" pluginManufacturerCode="Onpr"
+              lv2Uri="https://github.com/owennjpr/JucePeakSynth">
   <MAINGROUP id="MdrO7G" name="PeakSynth">
     <GROUP id="{3066DA47-6FE2-173E-B961-49E710E9F931}" name="Source">
       <FILE id="keSuNp" name="PluginProcessor.cpp" compile="1" resource="0"

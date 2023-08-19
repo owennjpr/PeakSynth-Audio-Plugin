@@ -19,27 +19,28 @@ Once a file is playing this is the module that allows you to use midi input to c
 ----- How to Download this Plugin -----
 
 Here is the link for downloading the plugin as VST3 or AU through [Google Drive](https://drive.google.com/drive/folders/1ghIPKx0kRZkyaEUP4X4Qwysitcfxb0YX?usp=sharing)
+
 Follow the link and select which version of the plugin you would like to use. You will need to manually move this plugin to the correct VST3 or Components folder on your device for it to appear in your DAW.
 
 ----- Resources Used For Reference -----
 
 Official Juce Resources:
 
-https://docs.juce.com/master/index.html
+[JUCE Class Index](https://docs.juce.com/master/index.html)
 
-https://docs.juce.com/master/tutorial_playing_sound_files.html
+[JUCE Tutorial: Building an Audio Player](https://docs.juce.com/master/tutorial_playing_sound_files.html)
 
-https://docs.juce.com/master/tutorial_audio_thumbnail.html
+[JUCE Tutorial: Draw Audio Waveforms](https://docs.juce.com/master/tutorial_audio_thumbnail.html)
 
-https://docs.juce.com/master/tutorial_look_and_feel_customisation.html
+[JUCE Tutorial: Customize the Look and Feel of Your App](https://docs.juce.com/master/tutorial_look_and_feel_customisation.html)
 
 
 Other Resources:
 
-https://jucestepbystep.wordpress.com/
+[JUCE Step by Step](https://jucestepbystep.wordpress.com/)
 
-https://www.youtube.com/watch?v=i_Iq4_Kd7Rc
+[Learn Modern C++ by Building an Audio Plugin (w/ JUCE Framework) - Full Course](https://www.youtube.com/watch?v=i_Iq4_Kd7Rc)
 
-https://www.youtube.com/playlist?list=PLLgJJsrdwhPwJimt5vtHtNmu63OucmPck
+[Let's Build a Synth VST Plug-in with JUCE (2020)](https://www.youtube.com/playlist?list=PLLgJJsrdwhPwJimt5vtHtNmu63OucmPck)
 
-https://www.youtube.com/playlist?list=PL7Ysno2nO-6JVw5dTSYCmxdvxFS42kuve
+[JUCE Audio Plugin Intro Essentials](https://www.youtube.com/playlist?list=PL7Ysno2nO-6JVw5dTSYCmxdvxFS42kuve)

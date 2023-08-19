@@ -1,6 +1,6 @@
 # PeakSynth Audio Plugin
 
-<img width="900" alt="Screenshot 2023-07-08 at 3 44 10 PM" src="https://github.com/owennjpr/JucePeakSynth/assets/123135948/3960b4f5-36df-422b-8d0d-568b199de30d">
+<img width="900" alt="Screenshot 2023-07-08 at 3 44 10 PM" src="https://github.com/owennjpr/JucePeakSynth/assets/123135948/d4031d3a-0dfd-43bf-8c78-fa4c92a39e17">
 
 ----- What this Plugin Does -----
 

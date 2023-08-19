@@ -4,7 +4,7 @@
 
 ----- What this Plugin Does -----
 
-PeakSynth is a mix between a synthesizer and a sampler that instead of oscillators which sound from scratch, uses IIR filtering to "play" an audio file with midi. User Midi input is converted into a series of peak filters at frequencies corresponding to the notes being played. Depending on the character of the audio file being used, this can lead to lots of interesting outcomes. While this plugin is intended to be used for the most part with atonal audio like percussion or ambient noise (rain sounds, footsteps, wind, etc.) but any kind of audio input can generate some interesting results. This plugin is early in development and therefor may have some bugs or issues. If you have any issues with its use or suggestions for potential plugin features, feel free to email me at owenprendergast8@gmail.com.
+PeakSynth is a mix between a synthesizer and a sampler that instead of oscillators which sound from scratch, uses IIR filtering to "play" an audio file with midi. User Midi input is converted into a series of peak filters at frequencies corresponding to the notes being played. Depending on the character of the audio file being used, this can lead to lots of interesting outcomes. While this plugin is intended to be used for the most part with atonal audio like percussion or ambient noise, (rain sounds, footsteps, wind, etc.) but any kind of audio input can generate some interesting results. This plugin is early in development and therefore may have some bugs or issues. If you have any issues with its use or suggestions for potential plugin features, feel free to email me at owenprendergast8@gmail.com.
 
 ----- How to Use this Plugin -----
 

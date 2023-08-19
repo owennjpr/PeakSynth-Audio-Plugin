@@ -1,3 +1,3 @@
-./PeakSynth/Builds/MacOSX/*
-./PeakSynth/JuceLibraryCode/*
+.PeakSynth/Builds/*
+.PeakSynth/JuceLibraryCode/*
 .DS_Store

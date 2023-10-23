@@ -1,0 +1,213 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <https://github.com/owennjpr/JucePeakSynth:> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix time:  <http://lv2plug.in/ns/ext/time#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+plug:attack
+	a lv2:Parameter ;
+	rdfs:label "Attack" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.1 ;
+	lv2:minimum 0.1 ;
+	lv2:maximum 3 .
+
+plug:decay
+	a lv2:Parameter ;
+	rdfs:label "Decay" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.1 ;
+	lv2:minimum 0.1 ;
+	lv2:maximum 3 .
+
+plug:sustain
+	a lv2:Parameter ;
+	rdfs:label "Sustain" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0.1 ;
+	lv2:maximum 1 .
+
+plug:release
+	a lv2:Parameter ;
+	rdfs:label "Release" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.4 ;
+	lv2:minimum 0.1 ;
+	lv2:maximum 3 .
+
+plug:filter_20gain
+	a lv2:Parameter ;
+	rdfs:label "Filter Gain" ;
+	rdfs:range atom:Float ;
+	lv2:default 5 ;
+	lv2:minimum 1 ;
+	lv2:maximum 20 .
+
+plug:filter_20q
+	a lv2:Parameter ;
+	rdfs:label "Filter Q" ;
+	rdfs:range atom:Float ;
+	lv2:default 10 ;
+	lv2:minimum 5 ;
+	lv2:maximum 20 .
+
+plug:voices
+	a lv2:Parameter ;
+	rdfs:label "Number of Voices" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2	 ;
+	lv2:portProperty lv2:enumeration ;
+	lv2:scalePoint [
+		rdfs:label "1" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "4" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "8" ;
+		rdf:value 2 ;
+	] .
+
+plug:file_20gain
+	a lv2:Parameter ;
+	rdfs:label "File Gain" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum -12 ;
+	lv2:maximum 12 .
+
+plug:output_group_1
+	a pg:OutputGroup ;
+	lv2:name "Output" ;
+	lv2:symbol "output_group_1" .
+
+<https://github.com/owennjpr/JucePeakSynth>
+	ui:ui <https://github.com/owennjpr/JucePeakSynth:UI> ;
+	a lv2:InstrumentPlugin ;
+	doap:name "PeakSynth" ;
+	doap:description "PeakSynth" ;
+	lv2:minorVersion 0 ;
+	lv2:microVersion 0 ;
+	doap:maintainer [
+		a foaf:Person ;
+		foaf:name "Owen Prendergast" ;
+		foaf:homepage <https://github.com/owennjpr> ;
+		foaf:mbox <owenprendergast8@gmail.com> ;
+	] ;
+	doap:release [
+		a doap:Version ;
+		doap:revision "1.0.0" ;
+	] ;
+	lv2:optionalFeature
+		lv2:hardRTCapable ;
+	lv2:extensionData
+		state:interface ;
+	lv2:requiredFeature
+		urid:map ,
+		opts:options ,
+		bufs:boundedBlockLength ;
+	pg:mainOutput plug:output_group_1 ;
+	patch:writable
+		plug:attack ,
+		plug:decay ,
+		plug:sustain ,
+		plug:release ,
+		plug:filter_20gain ,
+		plug:filter_20q ,
+		plug:voices ,
+		plug:file_20gain ;
+	patch:readable
+		plug:attack ,
+		plug:decay ,
+		plug:sustain ,
+		plug:release ,
+		plug:filter_20gain ,
+		plug:filter_20q ,
+		plug:voices ,
+		plug:file_20gain ;
+	lv2:port [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 0 ;
+		lv2:symbol "audio_out_1" ;
+		lv2:name "Audio Out 1" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_out_2" ;
+		lv2:name "Audio Out 2" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:InputPort , atom:AtomPort ;
+		rsz:minimumSize 8768 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ,
+			time:Position ;
+		lv2:designation lv2:control ;
+		lv2:index 2 ;
+		lv2:symbol "in" ;
+		lv2:name "In" ;
+	] , [
+		a lv2:OutputPort , atom:AtomPort ;
+		rsz:minimumSize 8768 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			patch:Message ;
+		lv2:designation lv2:control ;
+		lv2:index 3 ;
+		lv2:symbol "out" ;
+		lv2:name "Out" ;
+	] , [
+		a lv2:OutputPort , lv2:ControlPort ;
+		lv2:designation lv2:latency ;
+		lv2:symbol "latency" ;
+		lv2:name "Latency" ;
+		lv2:index 4 ;
+		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
+		units:unit units:frame ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:freeWheeling ;
+		lv2:symbol "freeWheeling" ;
+		lv2:name "Free Wheeling" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 5 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:enabled ;
+		lv2:symbol "enabled" ;
+		lv2:name "Enabled" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 6 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] ;
+	opts:supportedOption
+		bufs:maxBlockLength .

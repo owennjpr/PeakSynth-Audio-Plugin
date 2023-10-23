@@ -6,7 +6,7 @@
               companyEmail="owenprendergast8@gmail.com" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginName="PeakSynth" pluginManufacturer="Owen Prendergast"
               version="1.0.0" pluginCode="Pksn" pluginManufacturerCode="Onpr"
-              lv2Uri="https://github.com/owennjpr/JucePeakSynth">
+              lv2Uri="https://github.com/owennjpr/JucePeakSynth" pluginFormats="buildAU,buildLV2,buildVST3">
   <MAINGROUP id="MdrO7G" name="PeakSynth">
     <GROUP id="{3066DA47-6FE2-173E-B961-49E710E9F931}" name="Source">
       <FILE id="keSuNp" name="PluginProcessor.cpp" compile="1" resource="0"
@@ -47,7 +47,8 @@
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="PeakSynth"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="PeakSynth" vst3BinaryLocation="$(HOME)/Library/Audio/Plug-Ins/VST3/Release"
-                       auBinaryLocation="$(HOME)/Library/Audio/Plug-Ins/Components/Release"/>
+                       auBinaryLocation="$(HOME)/Library/Audio/Plug-Ins/Components/Release"
+                       lv2BinaryLocation="$(HOME)/Library/Audio/Plug-Ins/LV2/Release"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../Documents/JUCE/modules"/>

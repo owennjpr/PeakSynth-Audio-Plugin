@@ -18,7 +18,7 @@ Once a file is playing this is the module that allows you to use midi input to c
 
 ----- How to Download this Plugin -----
 
-Here is the link for downloading the plugin as VST3 or AU through [Google Drive](https://drive.google.com/drive/folders/1ghIPKx0kRZkyaEUP4X4Qwysitcfxb0YX?usp=sharing)
+Here is the link for downloading the plugin as VST3, AU, or LV2 through [Google Drive](https://drive.google.com/drive/folders/1ghIPKx0kRZkyaEUP4X4Qwysitcfxb0YX?usp=sharing)
 
 Follow the link and select which version of the plugin you would like to use. You will need to manually move this plugin to the correct VST3 or Components folder on your device for it to appear in your DAW.
 

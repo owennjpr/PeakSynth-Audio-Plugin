@@ -2,11 +2,11 @@
 
 <img width="900" alt="Screenshot 2023-07-08 at 3 44 10 PM" src="https://github.com/owennjpr/JucePeakSynth/assets/123135948/d4031d3a-0dfd-43bf-8c78-fa4c92a39e17">
 
------ What this Plugin Does -----
+## What this Plugin Does
 
 PeakSynth is a mix between a synthesizer and a sampler that instead of oscillators which sound from scratch, uses IIR filtering to "play" an audio file with midi. User Midi input is converted into a series of peak filters at frequencies corresponding to the notes being played. Depending on the character of the audio file being used, this can lead to lots of interesting outcomes. While this plugin is intended to be used for the most part with atonal audio like percussion or ambient noise, (rain sounds, footsteps, wind, etc.) but any kind of audio input can generate some interesting results. This plugin is early in development and therefore may have some bugs or issues. If you have any issues with its use or suggestions for potential plugin features, feel free to email me at owenprendergast8@gmail.com.
 
------ How to Use this Plugin -----
+## How to Use this Plugin
 
 The File Player Module:
 
@@ -16,13 +16,13 @@ The Synth Module:
 
 Once a file is playing this is the module that allows you to use midi input to control the tonal nature of the sound. The gain slider controls the maximum gain level of the peak filter whenever you play a note. The Q slider controls the Q of the filter, with higher values creating a thinner peak. the Attack, Decay, Sustain, and Release knobs are standard ADSR controls which control the time it takes for the filter to reach its maximum gain and how long it takes to tail off in seconds. There is also a number of voices dropdown which allows you to determine whether the plugin is monophonic or 4-8 note polyphonic. 
 
------ How to Download this Plugin -----
+## How to Download this Plugin
 
 Here is the link for downloading the plugin as VST3, AU, or LV2 through [Google Drive](https://drive.google.com/drive/folders/1ghIPKx0kRZkyaEUP4X4Qwysitcfxb0YX?usp=sharing)
 
 Follow the link and select which version of the plugin you would like to use. You will need to manually move this plugin to the correct VST3 or Components folder on your device for it to appear in your DAW.
 
------ Resources Used For Reference -----
+## Resources Used For Reference
 
 Official Juce Resources:
 

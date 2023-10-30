@@ -6,6 +6,17 @@
 
 PeakSynth is a mix between a synthesizer and a sampler that instead of oscillators which sound from scratch, uses IIR filtering to "play" an audio file with midi. User Midi input is converted into a series of peak filters at frequencies corresponding to the notes being played. Depending on the character of the audio file being used, this can lead to lots of interesting outcomes. While this plugin is intended to be used for the most part with atonal audio like percussion or ambient noise, (rain sounds, footsteps, wind, etc.) but any kind of audio input can generate some interesting results. This plugin is early in development and therefore may have some bugs or issues. If you have any issues with its use or suggestions for potential plugin features, feel free to email me at owenprendergast8@gmail.com.
 
+## Demos
+
+Here are a couple examples of what this plugin can sound like. The first is a series of notes played with PeakSynth over a recording of ambient sounds outside. The second is a chord progression played over vinyl dust and scratching sounds generated in the iZotope Vinyl plugin.
+
+
+https://github.com/owennjpr/PeakSynth-Audio-Plugin/assets/123135948/ed55c5b7-b28d-4285-b7e5-9677def9c8ba
+
+
+https://github.com/owennjpr/PeakSynth-Audio-Plugin/assets/123135948/5ab5ae59-a3a8-486a-9c42-284c435fb824
+
+
 ## How to Use this Plugin
 
 The File Player Module:
@@ -21,6 +32,7 @@ Once a file is playing this is the module that allows you to use midi input to c
 Here is the link for downloading the plugin as VST3, AU, or LV2 through [Google Drive](https://drive.google.com/drive/folders/1ghIPKx0kRZkyaEUP4X4Qwysitcfxb0YX?usp=sharing)
 
 Follow the link and select which version of the plugin you would like to use. You will need to manually move this plugin to the correct VST3 or Components folder on your device for it to appear in your DAW.
+
 
 ## Resources Used For Reference
 

@@ -2,6 +2,8 @@
 
 <img width="900" alt="Screenshot 2023-07-08 at 3 44 10 PM" src="https://github.com/owennjpr/JucePeakSynth/assets/123135948/d4031d3a-0dfd-43bf-8c78-fa4c92a39e17">
 
+video demo link: https://drive.google.com/file/d/1MyZLQpser3z00eg5mtKh2x4wodKL4FYz/view?usp=sharing
+
 ## What this Plugin Does
 
 PeakSynth is a mix between a synthesizer and a sampler that instead of creating sound from scratch, uses IIR filtering to "play" an audio file with midi. User Midi input is converted into a series of peak filters at frequencies corresponding to the notes being played. Depending on the character of the audio file being used, this can lead to lots of interesting outcomes. While this plugin is intended to be used for the most part with atonal audio like percussion or ambient noise, (rain sounds, footsteps, wind, etc.) but any kind of audio input can generate some interesting results. This plugin is early in development and therefore may have some bugs or issues. If you have any issues with its use or suggestions for potential plugin features, feel free to email me at owenprendergast8@gmail.com.
